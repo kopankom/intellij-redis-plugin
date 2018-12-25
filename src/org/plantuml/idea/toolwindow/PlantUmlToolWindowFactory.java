@@ -20,7 +20,7 @@ public class PlantUmlToolWindowFactory implements ToolWindowFactory, DumbAware {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         PlantUmlToolWindowFactory.project = project;
-        PlantUmlToolWindow plantUmlToolWindow = new PlantUmlToolWindow(project, toolWindow);
+        RedisToolWindow plantUmlToolWindow = new RedisToolWindow(project, toolWindow);
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(plantUmlToolWindow, "sdfsdf", true);
         toolWindow.getContentManager().addContent(content);

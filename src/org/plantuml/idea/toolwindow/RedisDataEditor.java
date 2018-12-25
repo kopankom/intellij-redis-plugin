@@ -33,11 +33,11 @@ import java.beans.PropertyChangeListener;
 class RedisDataEditor extends UserDataHolderBase implements FileEditor {
 
 
-    private MongoPanel panel;
+    private DataExplorerPanel panel;
     private boolean disposed;
 
     public RedisDataEditor(Project project, RedisObjectFile mongoObjectFile) {
-        panel = new MongoPanel(project);
+        panel = new DataExplorerPanel(project);
     }
 
     @NotNull

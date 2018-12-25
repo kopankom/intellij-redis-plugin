@@ -25,8 +25,6 @@ import javax.swing.*;
 
 class RedisFakeFileType extends FakeFileType {
 
-    private static final Icon MONGO_ICON = GuiUtils.loadIcon("mongo_logo.png");
-
     public static final FileType INSTANCE = new RedisFakeFileType();
 
 
@@ -49,12 +47,12 @@ class RedisFakeFileType extends FakeFileType {
     @NotNull
     @Override
     public String getName() {
-        return "MONGO";
+        return "Redis";
     }
 
     @NotNull
     @Override
     public String getDescription() {
-        return "MONGO";
+        return "Redis";
     }
 }
