@@ -1,4 +1,0 @@
-' "Reverse arrow" "false"
-@startuml
-Alice -<caret>- Bob: Another authentication Request
-@enduml
