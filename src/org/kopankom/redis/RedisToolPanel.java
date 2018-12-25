@@ -1,4 +1,4 @@
-package org.plantuml.idea.toolwindow;
+package org.kopankom.redis;
 
 import com.intellij.ui.treeStructure.Tree;
 
@@ -56,7 +56,7 @@ public class RedisToolPanel extends JPanel {
                     Object nodeInfo = node.getUserObject();
 
                     RedisFileSystem.getInstance().openEditor(
-                            new RedisObjectFile(PlantUmlToolWindowFactory.project));
+                            new RedisObjectFile(RedisToolWindowFactory.project));
                 }
             }
         });

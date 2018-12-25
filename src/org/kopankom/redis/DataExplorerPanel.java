@@ -1,4 +1,4 @@
-package org.plantuml.idea.toolwindow;
+package org.kopankom.redis;
 
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.project.Project;

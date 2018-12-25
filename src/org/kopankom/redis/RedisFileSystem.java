@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.plantuml.idea.toolwindow;
+package org.kopankom.redis;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;

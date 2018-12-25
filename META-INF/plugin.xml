@@ -101,10 +101,10 @@
     </project-components>
     <application-components>
         <component>
-            <implementation-class>org.plantuml.idea.toolwindow.RedisDataEditorProvider</implementation-class>
+            <implementation-class>org.kopankom.redis.RedisDataEditorProvider</implementation-class>
         </component>
         <component>
-            <implementation-class>org.plantuml.idea.toolwindow.RedisFileSystem</implementation-class>
+            <implementation-class>org.kopankom.redis.RedisFileSystem</implementation-class>
         </component>
     </application-components>
     <actions>
@@ -113,6 +113,6 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="Redis" icon="/images/uml.png" anchor="right"
-                    factoryClass="org.plantuml.idea.toolwindow.PlantUmlToolWindowFactory"/>
+                    factoryClass="org.kopankom.redis.RedisToolWindowFactory"/>
     </extensions>
 </idea-plugin>
