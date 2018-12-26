@@ -1,6 +1,8 @@
-package org.kopankom.redis;
+package org.kopankom.Redis;
 
 import com.intellij.ui.treeStructure.Tree;
+import org.kopankom.Redis.FileSystem.RedisFileSystem;
+import org.kopankom.Redis.FileSystem.RedisObjectFile;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -32,7 +34,7 @@ public class RedisToolPanel extends JPanel {
         vegetableNode.add(new DefaultMutableTreeNode("Tomato"));
         vegetableNode.add(new DefaultMutableTreeNode("Potato"));
         TObject tobject = new TObject("Better potato");
-        tobject.objectPath = "redis:n1";
+        tobject.objectPath = "Redis:n1";
         vegetableNode.add(new DefaultMutableTreeNode(tobject));
 
         DefaultMutableTreeNode fruitNode = new DefaultMutableTreeNode("Fruits");
@@ -56,7 +58,7 @@ public class RedisToolPanel extends JPanel {
                     Object nodeInfo = node.getUserObject();
 
                     RedisFileSystem.getInstance().openEditor(
-                            new RedisObjectFile(RedisToolWindowFactory.project));
+                            new RedisObjectFile("Redis:n1"));
                 }
             }
         });

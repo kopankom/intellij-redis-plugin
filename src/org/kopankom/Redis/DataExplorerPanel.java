@@ -1,7 +1,6 @@
-package org.kopankom.redis;
+package org.kopankom.Redis;
 
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.project.Project;
 import com.intellij.ui.table.JBTable;
 
 import javax.swing.*;
@@ -11,12 +10,7 @@ import java.awt.*;
 
 public class DataExplorerPanel extends JPanel implements Disposable {
 
-    private final Project project;
-    private JPanel rootPanel;
-
-    public DataExplorerPanel(Project project) {
-        this.project = project;
-        this.rootPanel = new JPanel();
+    public DataExplorerPanel() {
         this.setLayout(new BorderLayout());
         TableModel tm = new TableModel() {
             @Override

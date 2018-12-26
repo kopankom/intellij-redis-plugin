@@ -1,23 +1,5 @@
-/*
- * Copyright (c) 2018 David Boissier.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+package org.kopankom.IntellijPlugin.FileSystem;
 
-package org.kopankom.redis;
-
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileListener;
@@ -26,43 +8,28 @@ import com.intellij.openapi.vfs.newvfs.impl.NullVirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.kopankom.Redis.RedisToolWindowFactory;
 
-public class RedisFileSystem extends VirtualFileSystem implements ApplicationComponent {
+public class BaseFileSystem extends VirtualFileSystem {
 
-    private static final String PROTOCOL = "redis";
+    private final String procol;
+    private final boolean readOnly;
 
-    public static RedisFileSystem getInstance() {
-        return ApplicationManager.getApplication().getComponent(RedisFileSystem.class);
-    }
-
-    @NotNull
-    @Override
-    public String getComponentName() {
-        return "RedisPlugin.RedisFileSystem";
+    public BaseFileSystem(String protocolName, boolean readOnly) {
+        this.procol = protocolName;
+        this.readOnly = readOnly;
     }
 
     @NotNull
     @Override
     public String getProtocol() {
-        return PROTOCOL;
+        return this.procol;
     }
 
-    @Override
-    public void initComponent() {
-
+    public void openEditor(final ObjectFile objectFile) {
+        FileEditorManager fileEditorManager = FileEditorManager.getInstance(RedisToolWindowFactory.project);
+        fileEditorManager.openFile(objectFile, true);
     }
-
-    @Override
-    public void disposeComponent() {
-
-    }
-
-    public void openEditor(final RedisObjectFile mongoObjectFile) {
-        FileEditorManager fileEditorManager = FileEditorManager.getInstance(mongoObjectFile.getProject());
-        fileEditorManager.openFile(mongoObjectFile, true);
-    }
-
-//    Unused methods
 
     @Nullable
     @Override
@@ -126,6 +93,6 @@ public class RedisFileSystem extends VirtualFileSystem implements ApplicationCom
 
     @Override
     public boolean isReadOnly() {
-        return true;
+        return this.readOnly;
     }
 }

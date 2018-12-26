@@ -1,20 +1,4 @@
-/*
- * Copyright (c) 2018 David Boissier.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package org.kopankom.redis;
+package org.kopankom.Redis;
 
 import com.intellij.codeHighlighting.BackgroundEditorHighlighter;
 import com.intellij.ide.structureView.StructureViewBuilder;
@@ -22,7 +6,6 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorLocation;
 import com.intellij.openapi.fileEditor.FileEditorState;
 import com.intellij.openapi.fileEditor.FileEditorStateLevel;
-import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.UserDataHolderBase;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,14 +19,14 @@ class RedisDataEditor extends UserDataHolderBase implements FileEditor {
     private DataExplorerPanel panel;
     private boolean disposed;
 
-    public RedisDataEditor(Project project, RedisObjectFile mongoObjectFile) {
-        panel = new DataExplorerPanel(project);
+    public RedisDataEditor() {
+        panel = new DataExplorerPanel();
     }
 
     @NotNull
     @Override
     public JComponent getComponent() {
-        return isDisposed() ? new JPanel() : panel;
+        return this.disposed ? new JPanel() : panel;
     }
 
     @Nullable
@@ -52,10 +35,9 @@ class RedisDataEditor extends UserDataHolderBase implements FileEditor {
         return panel == null ? null : null;
     }
 
-    @NotNull
     @Override
     public String getName() {
-        return "Mongo Data";
+        return null;
     }
 
     @Override
@@ -67,22 +49,14 @@ class RedisDataEditor extends UserDataHolderBase implements FileEditor {
         }
     }
 
-    private boolean isDisposed() {
-        return disposed;
-    }
-
     @NotNull
     @Override
     public FileEditorState getState(@NotNull FileEditorStateLevel level) {
         return FileEditorState.INSTANCE;
     }
 
-//    Unused methods
-
     @Override
-    public void setState(@NotNull FileEditorState state) {
-
-    }
+    public void setState(@NotNull FileEditorState state) {}
 
     @Override
     public boolean isModified() {
@@ -95,24 +69,16 @@ class RedisDataEditor extends UserDataHolderBase implements FileEditor {
     }
 
     @Override
-    public void selectNotify() {
-
-    }
+    public void selectNotify() {}
 
     @Override
-    public void deselectNotify() {
-
-    }
+    public void deselectNotify() {}
 
     @Override
-    public void addPropertyChangeListener(@NotNull PropertyChangeListener listener) {
-
-    }
+    public void addPropertyChangeListener(@NotNull PropertyChangeListener listener) {}
 
     @Override
-    public void removePropertyChangeListener(@NotNull PropertyChangeListener listener) {
-
-    }
+    public void removePropertyChangeListener(@NotNull PropertyChangeListener listener) {}
 
     @Nullable
     @Override

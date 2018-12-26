@@ -1,4 +1,4 @@
-<idea-plugin version="2">
+<idea-plugin>
     <name>Redis plugin</name>
     <version>0.0.1</version>
     <vendor>Michał Kopańko</vendor>
@@ -9,22 +9,17 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <project-components>
-    </project-components>
     <application-components>
         <component>
-            <implementation-class>org.kopankom.redis.RedisDataEditorProvider</implementation-class>
+            <implementation-class>org.kopankom.Redis.RedisDataEditorProvider</implementation-class>
         </component>
         <component>
-            <implementation-class>org.kopankom.redis.RedisFileSystem</implementation-class>
+            <implementation-class>org.kopankom.Redis.FileSystem.RedisFileSystem</implementation-class>
         </component>
     </application-components>
-    <actions>
-
-    </actions>
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="Redis" anchor="right"
-                    factoryClass="org.kopankom.redis.RedisToolWindowFactory"/>
+                    factoryClass="org.kopankom.Redis.RedisToolWindowFactory"/>
     </extensions>
 </idea-plugin>
